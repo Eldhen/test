@@ -1,0 +1,19 @@
+version: '3.5'
+
+services:
+  app:
+    container_name: budgetly-nextjs
+    build:
+      context: .
+    restart: always
+    command: npm run dev
+    environment:
+      - WATCHPACK_POLLING=true
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/app
+      - nodemodule:/app/node_modules
+
+volumes:
+  nodemodule:
